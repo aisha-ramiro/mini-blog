@@ -16,20 +16,52 @@ const CreatePost = () => {
   const { insertDocument, response } = useInsertDocument("posts")
   const { user } = useAuthValue()
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const navigate = useNavigate()
 
-    setFormError('')
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormError("");
+
+    // validate image
+    try {
+      new URL(image);
+    } catch (error) {
+      setFormError("A imagem precisa ser uma URL.");
+    }
+
+    // create tags array
+    const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
+
+    // check values
+    if (!title || !image || !tags || !body) {
+      setFormError("Por favor, preencha todos os campos!");
+    }
+
+    console.log(tagsArray);
+
+    console.log({
+      title,
+      image,
+      body,
+      tags: tagsArray,
+      uid: user.uid,
+      createdBy: user.displayName,
+    });
+
+    if(formError) return
 
     insertDocument({
       title,
       image,
       body,
-      tags,
+      tags: tagsArray,
       uid: user.uid,
-      createdBy: user.displayName
-    })
-  }
+      createdBy: user.displayName,
+    });
+
+    // redirect to home page
+    navigate("/");
+  };
 
 
   return (
@@ -50,7 +82,7 @@ const CreatePost = () => {
         <label>
           <span>URL da imagem: </span>
           <input
-            type="text"
+            type="url"
             name='image'
             required
             placeholder='Escolha uma imagem que represente o seu post'
@@ -79,8 +111,11 @@ const CreatePost = () => {
         </label>
         {!response.loading && <button className={styles.btn}>Publicar</button>}
         {response.loading && <button className={styles.btn} disabled>Aguarde...</button>}
-        {response.error && <p className='error'>{response.error}</p>}
+        
       </form>
+      {(response.error || formError) && (
+          <p className="error">{response.error || formError}</p>
+        )}
     </div>
   )
 }
