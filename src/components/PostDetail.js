@@ -4,8 +4,6 @@ import styles from "./PostDetail.module.css";
 
 const PostDetail = ({ post }) => {
 
-  console.log('post', post)
-
   return (
     <div className={styles.post_detail}>
       <img src={post.image} alt={post.title} />
