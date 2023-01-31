@@ -8,7 +8,8 @@ import styles from './Dashboard.module.css'
 const Dashboard = () => {
   const { user } = useAuthValue()
   const uid = user.uid
-  const posts = []
+
+  const {documents: posts, loading} = useFetchDocuments("posts", null, uid)
 
   return (
     <div>
@@ -23,6 +24,11 @@ const Dashboard = () => {
         <div>
         </div>
       )}
+      {posts && posts.map((post) => (
+        <div>
+        <h3>{post.title}</h3>
+        </div>
+      ))}
     </div>
   )
 }
