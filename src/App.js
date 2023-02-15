@@ -16,6 +16,7 @@ import Search from './pages/Search/Search';
 import Post from './pages/Post/Post';
 
 import './App.css';
+import Edit from './pages/Edit/Edit';
 
 function App() {
 
@@ -46,6 +47,10 @@ function App() {
               <Route path='/register' element={!user ? <Register /> : <Navigate to='/'/>} />
               <Route path='/about' element={<About />} />
               <Route path='/post/create' element={user ? <CreatePost /> : <Navigate to='login' />} />
+              <Route
+                path="/posts/edit/:id"
+                element={user ? <Edit /> : <Navigate to="/login" />}
+              />
               <Route path='/dashboard' element={user ? <Dashboard /> : <Navigate to='login' />} />
               <Route path='/search' element={<Search />} />
               <Route path='/posts/:id' element={<Post />} />
