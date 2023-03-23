@@ -24,10 +24,6 @@ const Register = () => {
       password
     }
 
-    const res = await createUser(user)
-
-    console.log('user', user)
-
     if (password !== confirmPassword) {
       setError("As senhas precisam ser iguais!")
       return

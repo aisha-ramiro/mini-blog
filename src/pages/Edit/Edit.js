@@ -30,7 +30,6 @@ const Edit = () => {
     }
   }, [post]);
 
-  const { user } = useAuthValue();
 
   const navigate = useNavigate();
 

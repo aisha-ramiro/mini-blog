@@ -24,9 +24,6 @@ const Login = () => {
       password
     }
 
-    const res = await login(user)
-
-    console.log('user', user)
 
   }
 
