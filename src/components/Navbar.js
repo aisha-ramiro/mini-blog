@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom"
 
 import { useAuthentication } from "../hooks/useAuthentication"
 import { useAuthValue } from "../context/AuthContext"
+import { auth } from 'firebase/auth';
 
 import styles from './Navbar.module.css'
 

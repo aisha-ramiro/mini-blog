@@ -3,7 +3,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
-  signOut
+  signOut,
+  auth
 } from 'firebase/auth'
 
 import { useState, useEffect } from 'react'
