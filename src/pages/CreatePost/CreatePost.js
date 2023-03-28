@@ -1,4 +1,5 @@
 import styles from "./CreatePost.module.css";
+import React from 'react';
 
 import { useState } from "react";
 import { useInsertDocument } from "../../hooks/useInsertDocument";

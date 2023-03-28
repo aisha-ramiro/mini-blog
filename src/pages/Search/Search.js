@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useFetchDocuments } from "../../hooks/useFetchDocuments"
 import { useQuery } from "../../hooks/useQuery"
+import React from 'react';
 
 import PostDetail from '../../components/PostDetail'
 

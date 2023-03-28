@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAuthentication } from '../../hooks/useAuthentication'
+import React from 'react';
 
 import styles from './Register.module.css'
 
