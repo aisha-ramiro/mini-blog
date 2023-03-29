@@ -1,4 +1,6 @@
 import { useState, useEffect, useReducer } from 'react'
+import React from 'react';
+
 import { db } from '../firebase/config'
 import { collection, addDoc, Timestamp } from 'firebase/firestore'
 

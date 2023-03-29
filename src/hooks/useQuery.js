@@ -1,4 +1,6 @@
 import { useLocation } from "react-router-dom";
+import React from 'react';
+
 import { useMemo } from "react";
 
 export function useQuery (){

@@ -6,6 +6,8 @@ import {
   signOut,
   auth
 } from 'firebase/auth'
+import React from 'react';
+
 
 import { useState, useEffect } from 'react'
 
